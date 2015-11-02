@@ -13,6 +13,8 @@
 		28BE9B571BE7D0F100C5DD8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28BE9B551BE7D0F100C5DD8D /* Main.storyboard */; };
 		28BE9B591BE7D0F100C5DD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28BE9B581BE7D0F100C5DD8D /* Assets.xcassets */; };
 		28BE9B5C1BE7D0F100C5DD8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28BE9B5A1BE7D0F100C5DD8D /* LaunchScreen.storyboard */; };
+		28BE9B651BE7D14700C5DD8D /* BackgroundTimeRemainingUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE9B641BE7D14700C5DD8D /* BackgroundTimeRemainingUtility.m */; settings = {ASSET_TAGS = (); }; };
+		28BE9B671BE801FE00C5DD8D /* sailing.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 28BE9B661BE801FE00C5DD8D /* sailing.pdf */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		28BE9B581BE7D0F100C5DD8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28BE9B5B1BE7D0F100C5DD8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28BE9B5D1BE7D0F100C5DD8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28BE9B631BE7D13E00C5DD8D /* BackgroundTimeRemainingUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundTimeRemainingUtility.h; sourceTree = "<group>"; };
+		28BE9B641BE7D14700C5DD8D /* BackgroundTimeRemainingUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundTimeRemainingUtility.m; sourceTree = "<group>"; };
+		28BE9B661BE801FE00C5DD8D /* sailing.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = sailing.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +65,15 @@
 			children = (
 				28BE9B4F1BE7D0F100C5DD8D /* AppDelegate.h */,
 				28BE9B501BE7D0F100C5DD8D /* AppDelegate.m */,
+				28BE9B631BE7D13E00C5DD8D /* BackgroundTimeRemainingUtility.h */,
+				28BE9B641BE7D14700C5DD8D /* BackgroundTimeRemainingUtility.m */,
 				28BE9B521BE7D0F100C5DD8D /* ViewController.h */,
 				28BE9B531BE7D0F100C5DD8D /* ViewController.m */,
 				28BE9B551BE7D0F100C5DD8D /* Main.storyboard */,
 				28BE9B581BE7D0F100C5DD8D /* Assets.xcassets */,
 				28BE9B5A1BE7D0F100C5DD8D /* LaunchScreen.storyboard */,
 				28BE9B5D1BE7D0F100C5DD8D /* Info.plist */,
+				28BE9B661BE801FE00C5DD8D /* sailing.pdf */,
 				28BE9B4C1BE7D0F100C5DD8D /* Supporting Files */,
 			);
 			path = NSURLSessionDataTaskExample;
@@ -138,6 +146,7 @@
 			files = (
 				28BE9B5C1BE7D0F100C5DD8D /* LaunchScreen.storyboard in Resources */,
 				28BE9B591BE7D0F100C5DD8D /* Assets.xcassets in Resources */,
+				28BE9B671BE801FE00C5DD8D /* sailing.pdf in Resources */,
 				28BE9B571BE7D0F100C5DD8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28BE9B651BE7D14700C5DD8D /* BackgroundTimeRemainingUtility.m in Sources */,
 				28BE9B541BE7D0F100C5DD8D /* ViewController.m in Sources */,
 				28BE9B511BE7D0F100C5DD8D /* AppDelegate.m in Sources */,
 				28BE9B4E1BE7D0F100C5DD8D /* main.m in Sources */,
@@ -264,6 +274,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NSURLSessionDataTaskExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = stonehill.edu.NSURLSessionDataTaskExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -275,6 +286,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NSURLSessionDataTaskExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = stonehill.edu.NSURLSessionDataTaskExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
