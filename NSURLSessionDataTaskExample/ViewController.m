@@ -64,7 +64,7 @@
         
         // Initialize BACKGROUND session by constructing a NSURLSessionConfiguration
         //NSURLSessionConfiguration *configuration =  [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:uniqueId];
-        NSURLSessionConfiguration *configuration =  [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSessionConfiguration *configuration =  [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:uniqueId];
         configuration.allowsCellularAccess = NO;
         
         // Create the session
@@ -91,34 +91,8 @@
     [urlRequest setValue:[NSString stringWithFormat:@"%i",[data length]] forHTTPHeaderField:@"Content-Length"];
     [urlRequest setHTTPBody:data];
     
-    NSURLSessionDataTask* uploadTask = [self.session dataTaskWithRequest:urlRequest
-                                                       completionHandler:^(NSData *data,
-                                                                           NSURLResponse *response,
-                                                                           NSError *error)
-    {
-        if (!error)
-        {
-            NSLog(@"%s: %@\n%@", __PRETTY_FUNCTION__,[[NSString alloc]  initWithBytes:[data bytes] length:[data length] encoding: NSASCIIStringEncoding], response);
-        }
-        else
-        {
-            NSLog(@"%s: Error occurred: %@", __PRETTY_FUNCTION__,error);
-        }
-        
-        // Update UI
-        dispatch_block_t work_to_do = ^{
-           self.state.text = @"Ready";
-        };
-        
-        if ([NSThread isMainThread])
-        {
-            work_to_do();
-        }
-        else
-        {
-            dispatch_sync(dispatch_get_main_queue(), work_to_do);
-        }
-    }];
+    // Create upload task
+    NSURLSessionDataTask* uploadTask = [self.session dataTaskWithRequest:urlRequest];
     
     // Start upload task
     [uploadTask resume];
@@ -165,7 +139,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 }
 
 //
-// Delegate of NSURLSessionDataDelegate (NOT CALLED IN THIS EXAMPLE)
+// Delegate of NSURLSessionDataDelegate
 //
 - (void)URLSession:(NSURLSession *)session
           dataTask:(NSURLSessionDataTask *)dataTask
@@ -173,7 +147,8 @@ didReceiveResponse:(NSURLResponse *)response
  completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler
 {
     //Tells the delegate that the data task received the initial reply (headers) from the server.
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"%s: %@", __PRETTY_FUNCTION__,response);
+    completionHandler(NSURLSessionResponseAllow);
 }
 
 //
@@ -240,7 +215,8 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
  completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition,
                              NSURLCredential *credential))completionHandler
 {
-    // Requests credentials from the delegate in response to an authentication request from the remote server.
+
+      // Requests credentials from the delegate in response to an authentication request from the remote server.
     NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
